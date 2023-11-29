@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Expr\FuncCall;
@@ -19,9 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test' , function () {
-    return 'test page' ;
-})->name('test');
+Route::resource('test', TestController::class);
 
 Route::controller(VideoController::class)->name('videos.')->group(function (){
     Route::get('/videos' , 'index')->name('index');
