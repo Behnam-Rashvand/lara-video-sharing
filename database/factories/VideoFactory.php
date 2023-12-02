@@ -21,7 +21,7 @@ class VideoFactory extends Factory
             'slug'=> fake()->slug(),
             'url' => fake()->imageUrl(640,480,'animals' , true),
             'length' => fake()->randomNumber(3 , false) ,
-            'description' => fake()->sentence(rand(2,5)),
+            'description' => fake()->realText(100),
         ];
     }
 }
