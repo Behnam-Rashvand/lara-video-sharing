@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,7 @@ use PhpParser\Node\Expr\FuncCall;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class , "index"]);
 
 Route::resource('test', TestController::class);
 

@@ -34,9 +34,9 @@ Version       : 1.0
 /************* Typography ******************/
 @font-face {
   font-family: 'IRANSansWeb';
-  src: url('fonts/IRANSansWeb.eot?-wwn5ej');
-  src: url('fonts/IRANSansWeb.eot?#iefix-wwn5ej') format('embedded-opentype'),
-  url('fonts/IRANSansWeb.woff2') format('woff');
+  src: url('../../fonts/IRANSansWeb.eot?-wwn5ej');
+  src: url('../../fonts/IRANSansWeb.eot?#iefix-wwn5ej') format('embedded-opentype'),
+  url('../../fonts/IRANSansWeb.woff2') format('woff');
   font-weight: normal;
   font-style: normal;
 }
