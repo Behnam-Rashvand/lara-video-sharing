@@ -19,9 +19,10 @@ class VideoFactory extends Factory
         return [
             'name'=> fake()->name(),
             'slug'=> fake()->slug(),
-            'url' => fake()->imageUrl(640,480,'animals' , true),
+            'url' => asset('storage/videos/1.mp4'),
             'length' => fake()->randomNumber(3 , false) ,
             'description' => fake()->realText(100),
+            'thumbnail' => 'https://loremflickr.com/320/240?random=' . rand(1,99),
         ];
     }
 }

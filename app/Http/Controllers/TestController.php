@@ -11,7 +11,7 @@ class TestController extends Controller
      */
     public function index()
     {
-        return "index";
+        return asset('storage/videos/1.mp4');
     }
 
     /**
