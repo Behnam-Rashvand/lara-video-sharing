@@ -10,18 +10,13 @@ class Video extends Model
 {
     use HasFactory;
 
-
     public function length(): Attribute
     {
-        return Attribute::make(
-            get: fn ( int $value ) => gmdate('H:i',$value) ,
-        );
+        return Attribute::make(get: fn(int $value) => gmdate('H:i', $value));
     }
 
     public function createdAt(): Attribute
     {
-        return Attribute::make(
-            get: fn ($value) => verta($value)->formatDifference(),
-        );
+        return Attribute::make(get: fn($value) => verta($value)->formatDifference());
     }
 }
