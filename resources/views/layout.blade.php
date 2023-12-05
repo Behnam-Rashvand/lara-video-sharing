@@ -100,6 +100,11 @@
 
     <div class="site-output">
         <div id="all-output" class="col-md-12">
+            @if( session('alert') )
+            <div class="alert alert-success">
+                {{ session('alert') }}
+            </div>
+            @endif
 
             @yield('content')
         </div>

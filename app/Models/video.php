@@ -10,6 +10,15 @@ class Video extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'url',
+        'length',
+        'slug',
+        'thumbnail',
+        'description'
+    ];
+
     public function length(): Attribute
     {
         return Attribute::make(get: fn(int $value) => gmdate('H:i', $value));

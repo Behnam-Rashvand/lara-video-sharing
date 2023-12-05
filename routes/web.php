@@ -17,7 +17,7 @@ use App\Http\Controllers\VideoController;
 |
 */
 
-Route::get('/', [IndexController::class, "index"]);
+Route::get('/', [IndexController::class, "index"])->name('home');
 
 Route::resource('test', TestController::class);
 
