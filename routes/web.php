@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\IndexController;
-use App\Http\Controllers\TestController;
-use App\Http\Controllers\VideoController;
-use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Expr\FuncCall;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +17,13 @@ use PhpParser\Node\Expr\FuncCall;
 |
 */
 
-Route::get('/', [IndexController::class , "index"]);
+Route::get('/', [IndexController::class, "index"]);
 
 Route::resource('test', TestController::class);
 
-Route::controller(VideoController::class)->name('videos.')->group(function (){
-    Route::get('/videos' , 'index')->name('index');
+Route::controller(VideoController::class)->prefix('videos')->name('videos.')->group(function () {
+
+    Route::get('/', 'index')->name('index');
+    Route::get('create', 'create')->name('create');
+    Route::post('/' , 'store')->name('store');
 });

@@ -11,4 +11,14 @@ class VideoController extends Controller
     {
         return 'video Controller page';
     }
+
+    public function create()
+    {
+        return view('videos.create');
+    }
+
+    public function store(Request $request)
+    {
+        return $request;
+    }
 }
