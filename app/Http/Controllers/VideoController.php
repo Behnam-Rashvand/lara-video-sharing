@@ -21,7 +21,6 @@ class VideoController extends Controller
 
     public function store(StoreVideoRequest $request)
     {
-        dd($request->validated());
         Video::create($request->all());
         return to_route('home')->with('alert', __('messages.success'));
     }

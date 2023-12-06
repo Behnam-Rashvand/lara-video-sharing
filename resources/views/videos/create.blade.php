@@ -14,11 +14,11 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label>@lang('videos.name')</label>
-                            <input type="text" name="name" class="form-control" placeholder="@lang('videos.name')">
+                            <input type="text" value="{{ old('name') }}" name="name" class="form-control" placeholder="@lang('videos.name')">
                         </div>
                         <div class="col-md-6">
                             <label> @lang('videos.length')  </label>
-                                <input type="text" name="length" class="form-control" placeholder="@lang('videos.length')">
+                                <input type="text" value="{{ old('length') }}" name="length" class="form-control" placeholder="@lang('videos.length')">
                         </div>
                         {{-- <div class="col-md-6">
                         <label>دسته بندی</label>
@@ -32,21 +32,23 @@
 
                         <div class="col-md-6">
                             <label> @lang('videos.slug')</label>
-                            <input type="text" name="slug" class="form-control" placeholder=" @lang('videos.slug')">
+                            <input type="text" value="{{ old('slug') }}" name="slug" class="form-control" placeholder=" @lang('videos.slug')">
                         </div>
                         <div class="col-md-6">
                             <label> @lang('videos.url') </label>
                             {{-- <input id="upload_file" type="file" class="file"> --}}
-                            <input type="text" name="url" class="form-control" placeholder=" @lang('videos.url') ">
+                            <input type="text" value="{{ old('url') }}" name="url" class="form-control" placeholder=" @lang('videos.url') ">
                         </div>
                         <div class="col-md-6">
                             <label> @lang('videos.thumbnail')  </label>
                             {{-- <input id="featured_image" type="file" class="file"> --}}
-                            <input type="text" name="thumbnail" class="form-control" placeholder=" @lang('videos.thumbnail')">
+                            <input type="text" value="{{ old('thumbnail') }}" name="thumbnail" class="form-control" placeholder=" @lang('videos.thumbnail')">
                         </div>
                         <div class="col-md-12">
                             <label>@lang('videos.description')</label>
-                            <textarea name="description" class="form-control" rows="4" placeholder="@lang('videos.description')"></textarea>
+                            <textarea name="description"  class="form-control" rows="4" placeholder="@lang('videos.description')">
+                                {{ old('description') }}
+                            </textarea>
                         </div>
                         
                         <div class="col-md-12">
