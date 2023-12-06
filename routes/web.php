@@ -26,4 +26,6 @@ Route::controller(VideoController::class)->prefix('videos')->name('videos.')->gr
     Route::get('/', 'index')->name('index');
     Route::get('create', 'create')->name('create');
     Route::post('/' , 'store')->name('store');
+    Route::get('{video}' , 'show')->name('show');
+
 });

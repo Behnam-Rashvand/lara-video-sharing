@@ -19,6 +19,11 @@ class Video extends Model
         'description'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function length(): Attribute
     {
         return Attribute::make(get: fn(int $value) => gmdate('H:i', $value));
@@ -27,5 +32,10 @@ class Video extends Model
     public function createdAt(): Attribute
     {
         return Attribute::make(get: fn($value) => verta($value)->formatDifference());
+    }
+
+    public function relatedVideos($count = 6)   
+    {
+        return Video::all()->random($count);
     }
 }

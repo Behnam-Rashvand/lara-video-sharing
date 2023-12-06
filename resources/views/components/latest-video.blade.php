@@ -5,7 +5,6 @@
 
     @foreach ($videos as $video)
        <x-video-box :$video />
-
     @endforeach
 
 </div>

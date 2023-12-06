@@ -4,10 +4,10 @@
         <div class="thumb">
             <div class="hover-efect"></div>
             <small class="time">{{ $video->length }}</small>
-            <a href="#"><img src="{{ $video->thumbnail }}" alt=""></a>
+            <a href="{{ route('videos.show' , $video) }}"><img src="{{ $video->thumbnail }}" alt=""></a>
         </div>
         <div class="video-info">
-            <a href="#" class="title">
+            <a href="{{ route('videos.show' , $video) }}" class="title">
                 {{ $video->name }}
             </a>
             <a class="channel-name" href="#">مهرداد سامی<span>

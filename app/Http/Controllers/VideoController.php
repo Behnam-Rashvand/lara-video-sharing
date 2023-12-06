@@ -24,4 +24,9 @@ class VideoController extends Controller
         Video::create($request->all());
         return to_route('home')->with('alert', __('messages.success'));
     }
+
+    public function show(Video $video)
+    {
+        return view('videos.show' , compact('video'));
+    }
 }
