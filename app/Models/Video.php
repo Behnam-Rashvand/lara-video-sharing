@@ -24,9 +24,9 @@ class Video extends Model
         return 'slug';
     }
 
-    public function length(): Attribute
+    public function lengthInHuman(): Attribute
     {
-        return Attribute::make(get: fn(int $value) => gmdate('H:i', $value));
+        return Attribute::make(get: fn() => gmdate('H:i', $this->length));
     }
 
     public function createdAt(): Attribute

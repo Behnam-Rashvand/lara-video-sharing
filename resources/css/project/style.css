@@ -951,6 +951,11 @@ h1.new-video-title .fa{
 	background-color: #FFF;
 	padding: 25px;
 }
+.video-info>div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
 .video-item a.title{
 	font-family: 'IRANSansWeb', sans-serif;
 	font-size: 12px;

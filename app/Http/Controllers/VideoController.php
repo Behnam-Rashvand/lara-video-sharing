@@ -29,4 +29,16 @@ class VideoController extends Controller
     {
         return view('videos.show' , compact('video'));
     }
+
+    public function edit(Video $video)
+    {
+        return view('videos.edit' , compact('video'));
+    }
+
+    public function update(Request $request , Video $video)
+    {
+        $video->update($request->all());
+        return to_route('videos.show' , $video)->with('alert' , __('messages.video_edit'));
+    }
+
 }
