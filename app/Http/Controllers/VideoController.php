@@ -28,6 +28,6 @@ class VideoController extends Controller
             'thumbnail' => ['required' , 'url']
         ]);
         Video::create($request->all());
-        return to_route('home')->with('alert' , 'عملیات شما موفقیت آمیز بود');
+        return to_route('home')->with('alert' , __('messages.success') );
     }
 }
