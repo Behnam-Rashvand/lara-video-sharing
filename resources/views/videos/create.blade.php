@@ -1,10 +1,11 @@
 @extends('layout')
 
 
-
 @section('content')
-    <div id="upload">
-        <div class="row">
+<div id="upload">
+    <div class="row">
+        <x-validation-error />
+        
             <!-- upload -->
             <div class="col-md-8">
                 <h1 class="page-title"><span>آپلود</span> فیلم</h1>
