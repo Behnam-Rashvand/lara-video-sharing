@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Video extends Model
 {
@@ -37,5 +38,10 @@ class Video extends Model
     public function relatedVideos($count = 6)   
     {
         return Video::all()->random($count);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
     }
 }
