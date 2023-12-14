@@ -169,7 +169,8 @@ return [
         ],
         "data" => [
             "password" => 'رمز عبور'
-        ]
+        ],
+        'category_id' => 'دسته بندی' ,
     ],
     'national_code' => 'کد ملی صحیح نمیباشد',
 ];
