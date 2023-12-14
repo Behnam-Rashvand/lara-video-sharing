@@ -11,6 +11,10 @@
     @foreach ($videos as $video)
        <x-video-box :$video />
     @endforeach
-
+</div>
+<div class="" style="margin-top: 20px">
+    <div class="paginate text-center">
+        {{ $videos->links() }}
+    </div>
 </div>
 @endsection
