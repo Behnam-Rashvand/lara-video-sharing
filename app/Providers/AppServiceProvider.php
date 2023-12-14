@@ -23,5 +23,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // Aliases for images in file blade
         Vite::macro('image', fn (string $asset) => $this->asset("resources/images/{$asset}"));
+
+        Paginator::useBootstrapFour();
     }
 }

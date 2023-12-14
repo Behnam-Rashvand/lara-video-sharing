@@ -12,7 +12,7 @@
        <x-video-box :$video />
     @endforeach
 </div>
-<div class="" style="margin-top: 20px">
+<div class="" style="margin-top: 20px" dir="ltr">
     <div class="paginate text-center">
         {{ $videos->links() }}
     </div>
