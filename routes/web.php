@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\VideoController;
+use App\Http\Controllers\CategoryVideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,5 @@ Route::controller(VideoController::class)->prefix('videos')->name('videos.')->gr
     Route::get('{video}/edit' , 'edit')->name('edit');
     Route::post('{video}' , 'update')->name('update');
 });
+
+Route::get('categories/{category:slug}/videos' , [CategoryVideoController::class , "index"])->name('categories.videos.index');
