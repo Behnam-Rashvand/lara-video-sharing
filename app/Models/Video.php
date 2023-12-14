@@ -44,4 +44,9 @@ class Video extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function categoryName():Attribute
+    {
+        return (Attribute::make(get: fn() => $this->category?->name ));
+    }
 }
