@@ -21,6 +21,8 @@ class Video extends Model
         'category_id'
     ];
 
+    protected $perPage= 18;
+
     public function getRouteKeyName()
     {
         return 'slug';
