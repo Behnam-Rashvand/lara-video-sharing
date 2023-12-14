@@ -17,7 +17,8 @@ class Video extends Model
         'length',
         'slug',
         'thumbnail',
-        'description'
+        'description' ,
+        'category_id'
     ];
 
     public function getRouteKeyName()
