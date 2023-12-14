@@ -22,10 +22,7 @@
                             <input type="text" value="{{ old('length') }}" name="length" class="form-control"
                                 placeholder="@lang('videos.length')">
                         </div>
-                        {{-- <div class="col-md-6">
-                        <label>دسته بندی</label>
-                            <input type="text" name="category" class="form-control" placeholder="دسته بندی">
-                        </div> --}}
+                        
                         <div class="col-md-6">
                             <lable> دسته بندی </lable>
                             <select name="category_id" id="category" class="form-control">
