@@ -13,4 +13,13 @@ class Category extends Model
     {
         return $this->hasMany(Video::class);
     }
+
+    public function getRandomVideos( $curent_video_id ,$count = 6)
+    {
+        return $this->videos()
+            ->whereNot('id', $curent_video_id )
+            ->inRandomOrder()
+            ->take($count)
+            ->get();
+    }
 }
