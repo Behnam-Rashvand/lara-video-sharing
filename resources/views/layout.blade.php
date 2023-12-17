@@ -44,7 +44,7 @@
                         <i class="fa fa-close"></i>
                     </a>
                     <div id="logo">
-                        <a href="01-home.html">
+                        <a href="{{ route('home') }}">
                             <img src="{{ Vite::image('logo.png') }}" alt="">
                         </a>
                     </div>
