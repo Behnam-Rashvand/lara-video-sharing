@@ -9,3 +9,9 @@ import './project/custom.js';
 import './project/bootstrap.min';
 import './project/imagesloaded.pkgd.min';
 import './project/grid-blog.min'; 
+
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+
+Alpine.start();

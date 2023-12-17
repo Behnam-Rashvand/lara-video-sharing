@@ -1,3 +1,6 @@
 @import url(./project/bootstrap.min.css);
 @import url(./project/style.css);
 @import url(./project/responsive.css);
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
