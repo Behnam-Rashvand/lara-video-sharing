@@ -62,35 +62,48 @@
                 <div class="col-lg-2 col-md-2 col-sm-4 hidden-xs hidden-sm">
                     <!--  -->
                 </div>
-                <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs hidden-sm">
-                    <div class="dropdown">
-                        <a data-toggle="dropdown" href="#" class="user-area">
-                            <div class="thumb"><img src="{{ Vite::image('user-1.png') }}" alt="">
-                            </div>
-                            <h2>بهنام رشوند </h2>
-                            <h3>25 اشتراک</h3>
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu account-menu">
-                            <li><a href="#"><i class="fa fa-edit color-1"></i>ویرایش پروفایل</a></li>
-                            <li><a href="#"><i class="fa fa-video-camera color-2"></i>اضافه کردن فیلم</a></li>
-                            <li><a href="#"><i class="fa fa-star color-3"></i>برگزیده</a></li>
-                            <li><a href="#"><i class="fa fa-sign-out color-4"></i>خروج</a></li>
-                        </ul>
+                @auth
+                    <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs hidden-sm">
+                        <div class="dropdown">
+                            <a data-toggle="dropdown" href="#" class="user-area">
+                                <div class="thumb"><img src="{{ Vite::image('user-1.png') }}" alt="">
+                                </div>
+                                <h2>{{ auth()->user()->name }} </h2>
+                                <h3>25 اشتراک</h3>
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu account-menu">
+                                <li><a href="#"><i class="fa fa-edit color-1"></i>ویرایش پروفایل</a></li>
+                                <li><a href="#"><i class="fa fa-video-camera color-2"></i>اضافه کردن فیلم</a></li>
+                                <li><a href="#"><i class="fa fa-star color-3"></i>برگزیده</a></li>
+                                <li><a href="{{ route('logout') }}"><i class="fa fa-sign-out color-4"></i>خروج</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                @endauth
+                @guest
+                    <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs hidden-sm">
+                        <a href="{{ route('login.create') }}" class="btn btn-danger">
+                            ورود
+                        </a>
+                        <a href="{{ route('register.create') }}" class="btn btn-danger">
+                            ثبت نام
+                        </a>
+                    </div>
+                @endguest
+
             </div><!-- // row -->
         </div><!-- // container-full -->
     </header><!-- // header -->
 
-   <x-header-menu />
+    <x-header-menu />
 
     <div class="site-output">
         <div id="all-output" class="col-md-12">
-            @if( session('alert') )
-            <div class="alert alert-success">
-                {{ session('alert') }}
-            </div>
+            @if (session('alert'))
+                <div class="alert alert-success">
+                    {{ session('alert') }}
+                </div>
             @endif
 
             @yield('content')
