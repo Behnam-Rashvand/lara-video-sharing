@@ -66,7 +66,7 @@
                     <div class="col-lg-2 col-md-2 col-sm-3 hidden-xs hidden-sm">
                         <div class="dropdown">
                             <a data-toggle="dropdown" href="#" class="user-area">
-                                <div class="thumb"><img src="{{ Vite::image('user-1.png') }}" alt="">
+                                <div class="thumb"><img src="{{ auth()->user()->gravatar }}" alt="">
                                 </div>
                                 <h2>{{ auth()->user()->name }} </h2>
                                 <h3>25 اشتراک</h3>
