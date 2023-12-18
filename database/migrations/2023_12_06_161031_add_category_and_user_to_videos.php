@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('videos', function (Blueprint $table) {
             $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete()->onUpdate('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete()->onUpdate('cascade');
         });
     }
 
@@ -23,7 +24,8 @@ return new class extends Migration
     {
         Schema::table('videos', function (Blueprint $table) {
             $table->dropForeign(['category_id']);
-            $table->dropColumn('category_id');
+            $table->dropForeign(['user_id']);
+            $table->dropColumn(['category_id' , 'user_id']);
         });
     }
 };
