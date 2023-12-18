@@ -1365,7 +1365,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	top: 0px;
 	z-index: -1;
 	background-attachment: fixed;
-	background-image: url(../demo_img/sing-up-ba.jpg);
+	background-image: url(../../images/demo_img/sing-up-ba.jpg);
 	opacity: 0.2;
 	}	
 .log_in_page{
@@ -1381,7 +1381,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	top: 0px;
 	z-index: -1;
 	background-attachment: fixed;
-	background-image: url(../demo_img/log-in-ba.jpg);
+	background-image: url(../../images/demo_img/log-in-ba.jpg);
     opacity: 0.2;
 	}	
 .log-in-form{
