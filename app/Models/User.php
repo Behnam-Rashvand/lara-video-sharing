@@ -50,4 +50,8 @@ class User extends Authenticatable
         
         return (Attribute::make(get: fn () => "http://s.gravatar.com/avatar/$hash" ));
     }
+
+    public function videos() {
+        return $this->hasMany(Video::class);
+    }
 }

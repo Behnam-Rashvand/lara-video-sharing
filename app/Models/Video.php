@@ -33,7 +33,7 @@ class Video extends Model
         return Attribute::make(get: fn() => gmdate('H:i', $this->length));
     }
 
-    public function createdAt(): Attribute
+    public function CreatedAt(): Attribute
     {
         return Attribute::make(get: fn($value) => verta($value)->formatDifference());
     }
@@ -48,8 +48,23 @@ class Video extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function categoryName():Attribute
+    public function CategoryName():Attribute
     {
         return (Attribute::make(get: fn() => $this->category?->name ));
     }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function OwnerName(): Attribute
+    {
+        return (Attribute::make(get: fn()=> $this->user?->name));
+    }
+
+    public function OwnerAvatar(): Attribute
+    {
+        return (Attribute::make(get: fn()=> $this->user?->gravatar));
+    }
+
 }

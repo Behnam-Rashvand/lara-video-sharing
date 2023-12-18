@@ -174,4 +174,5 @@ return [
         'category_id' => 'دسته بندی' ,
     ],
     'national_code' => 'کد ملی صحیح نمیباشد',
+    'lowercase' => ' :attribute باید با حروف کوچک باشد',
 ];
