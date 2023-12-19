@@ -23,6 +23,6 @@ class VerifyEmailController extends Controller
             event(new Verified($request->user()));
         }
 
-        return redirect()->intended(RouteServiceProvider::HOME.'?verified=1');
+        return redirect()->route('home')->with('alert' , __('messages.your_email_was_verified'));
     }
 }
