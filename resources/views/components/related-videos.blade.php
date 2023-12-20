@@ -6,7 +6,7 @@
                <div class="related-video-item">
                    <div class="thumb">
                        <small class="time">{{ $video->lengthInHuman }}</small>
-                       <a href="#"><img src="{{ $video->thumbnail }}" alt=""></a>
+                       <a href="{{ route('videos.show' , $video) }}"><img src="{{ $video->thumbnail }}" alt=""></a>
                    </div>
                    <a href="{{ route('videos.show' , $video) }}" class="title"> {{ $video->name }} </a>
                    <a class="channel-name" href="#">داود طاهری<span>
