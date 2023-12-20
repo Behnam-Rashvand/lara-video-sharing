@@ -67,4 +67,9 @@ class Video extends Model
         return (Attribute::make(get: fn()=> $this->user?->gravatar));
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }
