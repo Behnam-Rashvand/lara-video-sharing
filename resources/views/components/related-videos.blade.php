@@ -9,7 +9,7 @@
                        <a href="{{ route('videos.show' , $video) }}"><img src="{{ $video->thumbnail }}" alt=""></a>
                    </div>
                    <a href="{{ route('videos.show' , $video) }}" class="title"> {{ $video->name }} </a>
-                   <a class="channel-name" href="#">داود طاهری<span>
+                   <a class="channel-name" href="#">{{ $video->owner_name }}<span>
                            <i class="fa fa-check-circle"></i></span></a>
                </div>
                <!-- // video item -->
