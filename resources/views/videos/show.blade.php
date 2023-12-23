@@ -7,6 +7,7 @@
         <div class="col-md-8">
             <div id="watch">
 
+                <x-validation-error />
                 <!-- Video Player -->
                 <h1 class="video-title">{{ $video->name }}</h1>
                 <div class="video-code">
@@ -72,13 +73,14 @@
 
                     </ul>
 
-
+                    @auth
                     <h3 class="post-box-title">ارسال نظرات</h3>
                     <form action="{{ route('comments.store' , $video) }}" method="POST">
                         @csrf
                         <textarea name="body" class="form-control" rows="8" id="Message" placeholder="پیام"></textarea>
                         <button type="submit" id="contact_submit" class="btn btn-dm">ارسال پیام</button>
                     </form>
+                    @endauth    
                 </div>
                 <!-- // Comments -->
 
