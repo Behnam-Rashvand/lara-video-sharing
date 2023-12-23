@@ -17,7 +17,7 @@ class viewedVideo extends Component
      */
     public function __construct()
     {
-        $this->videos = Video::all()->random(6);
+        $this->videos = Video::with(['user', 'category'])->get()->random(6);
     }
 
     /**
