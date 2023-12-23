@@ -74,12 +74,10 @@
 
 
                     <h3 class="post-box-title">ارسال نظرات</h3>
-                    <form>
-                        <input type="text" class="form-control" id="Name" placeholder="نام">
-                        <input type="email" class="form-control" id="Email" placeholder="ایمیل">
-                        <input type="text" class="form-control" placeholder="سایت">
-                        <textarea class="form-control" rows="8" id="Message" placeholder="پیام"></textarea>
-                        <button type="button" id="contact_submit" class="btn btn-dm">ارسال پیام</button>
+                    <form action="{{ route('comments.store' , $video) }}" method="POST">
+                        @csrf
+                        <textarea name="body" class="form-control" rows="8" id="Message" placeholder="پیام"></textarea>
+                        <button type="submit" id="contact_submit" class="btn btn-dm">ارسال پیام</button>
                     </form>
                 </div>
                 <!-- // Comments -->

@@ -8,4 +8,5 @@ return [
     'your_email_was_verified' => 'ایمیل شما تایید شد' ,
     'reset_link_was_send' => 'ایمیل بازیابی رمز عبور ارسال شد' ,
     'not_find_email' => 'ما نمیتوانیم کاربری با این ایمیل پیدا کنیم' ,
+    'comment_send_successfully' => 'نظر شما با موفقیت ثبت شد' ,
 ];
