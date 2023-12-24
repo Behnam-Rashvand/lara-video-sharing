@@ -8,6 +8,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CategoryVideoController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,8 @@ Route::controller(VideoController::class)->prefix('videos')->name('videos.')->gr
 Route::get('categories/{category:slug}/videos' , [CategoryVideoController::class , "index"])->name('categories.videos.index');
 
 Route::post('videos/{video}/comments' , [CommentController::class , "store"])->name('comments.store');
+
+Route::get('videos/{video}/like' , [LikeController::class , 'store'])->name('videos.like');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
