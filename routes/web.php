@@ -39,7 +39,9 @@ Route::get('categories/{category:slug}/videos' , [CategoryVideoController::class
 
 Route::post('videos/{video}/comments' , [CommentController::class , "store"])->name('comments.store');
 
-Route::get('videos/{video}/like' , [LikeController::class , 'store'])->name('videos.like');
+// Route::get('videos/{video}/like' , [LikeController::class , 'store'])->name('videos.like');
+// Route::get('comments/{comment}/like' , [LikeController::class , 'store'])->name('comments.like');
+Route::get('{likeable_type}/{likeable_id}/likes' , [LikeController::class , 'store'])->name('likes.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

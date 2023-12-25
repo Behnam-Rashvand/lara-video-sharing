@@ -8,13 +8,16 @@ use Illuminate\Http\Request;
 class LikeController extends Controller
 {
     
-    public function store(Video $video){
+    public function store(Request $request , string $likeable_type , string $likeable_id){
 
-        $video->likes()->create([
+        $model_name= 'App\\Models\\' . $likeable_type;
+        $routeKey = (new $model_name)->getRouteKeyName();
+        $likeable = $model_name::where($routeKey , $likeable_id)->firstOrFail();
+
+        $likeable->likes()->create([
             'user_id'=> auth()->id() ,
             'vote' => '1'
         ]);
-
         return back();
     }
 }

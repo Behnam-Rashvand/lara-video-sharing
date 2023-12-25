@@ -19,12 +19,13 @@
                 <div class="video-share">
                     <ul class="like">
                         <li><a class="deslike" href="#">
-                            {{ $video->dislikes_count }}
-                             <i class="fa fa-thumbs-down"></i>
+                                {{ $video->dislikes_count }}
+                                <i class="fa fa-thumbs-down"></i>
                             </a></li>
-                        <li><a class="like" href="{{ route('videos.like' , $video) }}">
-                            {{ $video->likes_count }}
-                             <i class="fa fa-thumbs-up"></i>
+                        <li><a class="like" 
+                            href="{{ route('likes.store', ['likeable_type'=>'video' ,'likeable_id' => $video]) }}">
+                                {{ $video->likes_count }}
+                                <i class="fa fa-thumbs-up"></i>
                             </a></li>
                     </ul>
                     <ul class="social_link">
@@ -69,9 +70,16 @@
                                     </div>
                                     <a href="#" class="author-name">{{ $comment->owner_name }}</a>
                                     <time datetime="2017-03-24T18:18"> {{ $comment->created_at_in_human }} </time>
+                                    
+                                    <a class='deslike mr-5' style="color: #aaaaaa; margin-right: 1rem"
+                                        href="">{{ $comment->dislikes_count }}<i class="fa fa-thumbs-down"></i></a>
+                                    <a class='like mr-5' style="color: #66c0c2"
+                                        href="{{ route('likes.store' , ['likeable_type' => 'comment' , 'likeable_id' => $comment]) }}">
+                                        {{ $comment->likes_count }}<i
+                                            class="fa fa-thumbs-up"></i></a>
                                 </div>
                                 <p>
-                                   {{ $comment->body }} 
+                                    {{ $comment->body }}
                                 </p>
                                 <a href="#" class="reply">پاسخ</a>
                             </li>
@@ -80,13 +88,13 @@
                     </ul>
 
                     @auth
-                    <h3 class="post-box-title">ارسال نظرات</h3>
-                    <form action="{{ route('comments.store' , $video) }}" method="POST">
-                        @csrf
-                        <textarea name="body" class="form-control" rows="8" id="Message" placeholder="پیام"></textarea>
-                        <button type="submit" id="contact_submit" class="btn btn-dm">ارسال پیام</button>
-                    </form>
-                    @endauth    
+                        <h3 class="post-box-title">ارسال نظرات</h3>
+                        <form action="{{ route('comments.store', $video) }}" method="POST">
+                            @csrf
+                            <textarea name="body" class="form-control" rows="8" id="Message" placeholder="پیام"></textarea>
+                            <button type="submit" id="contact_submit" class="btn btn-dm">ارسال پیام</button>
+                        </form>
+                    @endauth
                 </div>
                 <!-- // Comments -->
 
