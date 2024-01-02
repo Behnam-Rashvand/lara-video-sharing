@@ -10,7 +10,7 @@ class LikeController extends Controller
     
     public function store(Request $request , string $likeable_type , string $likeable_id){
 
-        $model_name= 'App\\Models\\' . $likeable_type;
+        $model_name= 'App\\Models\\' . ucfirst($likeable_type);
         $routeKey = (new $model_name)->getRouteKeyName();
         $likeable = $model_name::where($routeKey , $likeable_id)->firstOrFail();
 
