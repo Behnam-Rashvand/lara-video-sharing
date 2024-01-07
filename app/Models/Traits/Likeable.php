@@ -36,6 +36,8 @@ trait Likeable
 
     public function likedBy(User $user) 
     {
+        if ( $this->isLikedBy($user) ) return ;
+
         return $this->likes()->create([
             'user_id'=> $user->id ,
             'vote' => '1'
@@ -43,9 +45,28 @@ trait Likeable
     }
 
     public function dislikedBy(User $user) {
+
+        if ( $this->isDislikedBy($user) ) return ;
+
         return $this->likes()->create([
             'user_id'=> $user->id ,
             'vote' => '-1'
         ]);
+    }
+
+    public function isLikedBy(User $user) {
+        
+        return $this->likes()
+        ->where('vote' , 1)
+        ->where('user_id' , $user->id)
+        ->exists();
+    }
+     
+    public function isDislikedBy(User $user) {
+        
+        return $this->likes()
+        ->where('vote' , -1)
+        ->where('user_id' , $user->id)
+        ->exists();
     }
 }
