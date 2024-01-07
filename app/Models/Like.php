@@ -14,7 +14,7 @@ class Like extends Model
         'vote'
     ] ;
 
-    public function lakeable()
+    public function likeable()
     {
         return $this->morphTo();
     }
