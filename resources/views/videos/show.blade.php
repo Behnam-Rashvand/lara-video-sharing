@@ -18,7 +18,7 @@
 
                 <div class="video-share">
                     <ul class="like">
-                        <li><a class="deslike" href="#">
+                        <li><a class="deslike" href="{{ route('dislikes.store', ['likeable_type'=>'video' ,'likeable_id' => $video]) }}">
                                 {{ $video->dislikes_count }}
                                 <i class="fa fa-thumbs-down"></i>
                             </a></li>
@@ -72,7 +72,7 @@
                                     <time datetime="2017-03-24T18:18"> {{ $comment->created_at_in_human }} </time>
                                     
                                     <a class='deslike mr-5' style="color: #aaaaaa; margin-right: 1rem"
-                                        href="">{{ $comment->dislikes_count }}<i class="fa fa-thumbs-down"></i></a>
+                                        href="{{ route('dislikes.store' , ['likeable_type' => 'comment' , 'likeable_id' => $comment]) }}">{{ $comment->dislikes_count }}<i class="fa fa-thumbs-down"></i></a>
                                     <a class='like mr-5' style="color: #66c0c2"
                                         href="{{ route('likes.store' , ['likeable_type' => 'comment' , 'likeable_id' => $comment]) }}">
                                         {{ $comment->likes_count }}<i

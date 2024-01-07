@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DislikeController;
 use PhpParser\Node\Expr\FuncCall;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +43,7 @@ Route::post('videos/{video}/comments' , [CommentController::class , "store"])->n
 // Route::get('videos/{video}/like' , [LikeController::class , 'store'])->name('videos.like');
 // Route::get('comments/{comment}/like' , [LikeController::class , 'store'])->name('comments.like');
 Route::get('{likeable_type}/{likeable_id}/likes' , [LikeController::class , 'store'])->middleware('auth')->name('likes.store');
+Route::get('{likeable_type}/{likeable_id}/dislikes' , [DislikeController::class , 'store'])->middleware('auth')->name('dislikes.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
