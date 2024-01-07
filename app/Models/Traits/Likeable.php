@@ -3,6 +3,7 @@
 namespace App\Models\Traits;
 
 use App\Models\Like;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait Likeable
@@ -31,5 +32,20 @@ trait Likeable
             ->where('vote' , -1)
             ->count()
         ));
+    }
+
+    public function likedBy(User $user) 
+    {
+        return $this->likes()->create([
+            'user_id'=> $user->id ,
+            'vote' => '1'
+        ]);
+    }
+
+    public function dislikedBy(User $user) {
+        return $this->likes()->create([
+            'user_id'=> $user->id ,
+            'vote' => '-1'
+        ]);
     }
 }
