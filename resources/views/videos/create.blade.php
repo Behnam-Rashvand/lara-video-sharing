@@ -9,7 +9,7 @@
             <!-- upload -->
             <div class="col-md-8">
                 <h1 class="page-title"><span>@lang('videos.upload')</span> @lang('videos.video')</h1>
-                <form action="{{ route('videos.store') }}" method="POST">
+                <form action="{{ route('videos.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -24,7 +24,7 @@
                         </div>
                         
                         <div class="col-md-6">
-                            <lable> دسته بندی </lable>
+                            <lable> @lang('videos.category') </lable>
                             <select name="category_id" id="category" class="form-control">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}"> {{ $category->name }}</option>
@@ -44,9 +44,9 @@
                         </div>
                         <div class="col-md-6">
                             <label> @lang('videos.url') </label>
-                            {{-- <input id="upload_file" type="file" class="file"> --}}
-                            <input type="text" value="{{ old('url') }}" name="url" class="form-control"
-                                placeholder=" @lang('videos.url') ">
+                            <input id="upload_file" type="file" class="form-control" name="file">
+                            {{-- <input type="text" value="{{ old('url') }}" name="url" class="form-control"
+                                placeholder=" @lang('videos.url') "> --}}
                         </div>
                         <div class="col-md-6">
                             <label> @lang('videos.thumbnail') </label>

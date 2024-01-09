@@ -29,7 +29,7 @@ Route::resource('test', TestController::class);
 Route::controller(VideoController::class)->prefix('videos')->name('videos.')->group(function () {
 
     Route::get('/', 'index')->name('index');
-    Route::get('create', 'create')->name('create');
+    Route::get('create', 'create')->middleware('auth')->name('create');
     Route::post('/' , 'store')->name('store');
     Route::get('{video}' , 'show')->name('show');
     Route::get('{video}/edit' , 'edit')->name('edit');

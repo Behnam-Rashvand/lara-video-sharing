@@ -68,6 +68,11 @@ class Video extends Model
         return (Attribute::make(get: fn()=> $this->user?->gravatar));
     }
 
+    public function videoUrl(): Attribute
+    {
+        return (Attribute::make(get: fn()=> '/storage/'.$this->url));
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class)->orderByDesc('created_at');
