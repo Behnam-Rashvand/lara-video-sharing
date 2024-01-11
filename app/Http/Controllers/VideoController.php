@@ -25,7 +25,7 @@ class VideoController extends Controller
 
     public function store(StoreVideoRequest $request)
     {
-        $path= Storage::putFile('' , $request->file);
+        $path= Storage::putFile('videos' , $request->file);
         $request->merge([
             'path' => $path
         ]);
@@ -48,7 +48,7 @@ class VideoController extends Controller
     public function update( UpdateVideoRequest $request , Video $video)
     {
         if($request->hasFile('file')){
-            $path= Storage::putFile('' , $request->file);
+            $path= Storage::putFile('videos' , $request->file);
             $request->merge([
                 'path' => $path
             ]);
