@@ -27,7 +27,7 @@ class VideoController extends Controller
     {
         $path= Storage::putFile('' , $request->file);
         $request->merge([
-            'url' => $path
+            'path' => $path
         ]);
         $request->user()->videos()->create($request->all());
         return to_route('home')->with('alert', __('messages.success'));
@@ -50,7 +50,7 @@ class VideoController extends Controller
         if($request->hasFile('file')){
             $path= Storage::putFile('' , $request->file);
             $request->merge([
-                'url' => $path
+                'path' => $path
             ]);
         }
 

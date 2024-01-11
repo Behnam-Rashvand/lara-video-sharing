@@ -14,7 +14,7 @@ class Video extends Model
 
     protected $fillable = [
         'name',
-        'url',
+        'path',
         'length',
         'slug',
         'thumbnail',
@@ -70,7 +70,7 @@ class Video extends Model
 
     public function videoUrl(): Attribute
     {
-        return (Attribute::make(get: fn()=> '/storage/'.$this->url));
+        return (Attribute::make(get: fn()=> '/storage/'.$this->path));
     }
 
     public function comments()
