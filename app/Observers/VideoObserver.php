@@ -20,7 +20,9 @@ class VideoObserver
      */
     public function updated(Video $video): void
     {
-        Storage::delete($video->getOriginal('path'));
+        if($video->wasChanged('path')){
+            Storage::delete($video->getOriginal('path'));
+        }
     }
 
     /**
