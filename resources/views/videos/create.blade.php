@@ -45,8 +45,6 @@
                         <div class="col-md-6">
                             <label> @lang('videos.url') </label>
                             <input id="upload_file" type="file" class="form-control" name="file">
-                            {{-- <input type="text" value="{{ old('url') }}" name="url" class="form-control"
-                                placeholder=" @lang('videos.url') "> --}}
                         </div>
                         <div class="col-md-6">
                             <label> @lang('videos.thumbnail') </label>

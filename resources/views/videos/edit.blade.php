@@ -8,7 +8,7 @@
             <!-- upload -->
             <div class="col-md-8">
                 <h1 class="page-title"><span>@lang('videos.upload')</span> @lang('videos.video')</h1>
-                <form action="{{ route('videos.update', $video) }}" method="POST">
+                <form action="{{ route('videos.update', $video) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -44,9 +44,7 @@
                         </div>
                         <div class="col-md-6">
                             <label> @lang('videos.url') </label>
-                            {{-- <input id="upload_file" type="file" class="file"> --}}
-                            <input type="text" value="{{ $video->url }}" name="url" class="form-control"
-                                placeholder=" @lang('videos.url') ">
+                            <input id="upload_file" type="file" class="form-control" name="file">
                         </div>
                         <div class="col-md-6">
                             <label> @lang('videos.thumbnail') </label>
