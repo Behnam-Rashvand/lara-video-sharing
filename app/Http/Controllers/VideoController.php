@@ -23,7 +23,7 @@ class VideoController extends Controller
         return view('videos.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(StoreVideoRequest $request)
     {
         $path= Storage::putFile('' , $request->file);
         $request->merge([
