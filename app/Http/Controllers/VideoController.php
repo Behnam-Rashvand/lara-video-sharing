@@ -45,7 +45,7 @@ class VideoController extends Controller
         return view('videos.edit' , compact('video' , 'categories'));
     }
 
-    public function update(Request $request , Video $video)
+    public function update( UpdateVideoRequest $request , Video $video)
     {
         if($request->hasFile('file')){
             $path= Storage::putFile('' , $request->file);

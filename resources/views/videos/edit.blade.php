@@ -23,7 +23,7 @@
                         </div>
 
                         <div class="col-md-6">
-                            <lable> دسته بندی </lable>
+                            <lable> @lang('videos.category') </lable>
                             <select name="category_id" id="category" class="form-control">
                                 @foreach ($categories as $category)
                                     <option value="{{ $category->id }}" @selected($video->category_id == $category->id ) >
