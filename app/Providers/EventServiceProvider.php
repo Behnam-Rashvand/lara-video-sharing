@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\Like;
+use App\Models\Video;
 use App\Observers\LikeObserver;
+use App\Observers\VideoObserver;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -28,6 +30,7 @@ class EventServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Like::observe(LikeObserver::class);
+        Video::observe(VideoObserver::class);
     }
 
     /**
