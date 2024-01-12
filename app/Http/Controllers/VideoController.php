@@ -15,7 +15,7 @@ class VideoController extends Controller
 
     public function index()
     {
-        return 'video Controller page';
+        return view('index');
     }
 
     public function create()
