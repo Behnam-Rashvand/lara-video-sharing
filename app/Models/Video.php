@@ -31,7 +31,7 @@ class Video extends Model
 
     public function lengthInHuman(): Attribute
     {
-        return Attribute::make(get: fn() => gmdate('H:i', $this->length));
+        return Attribute::make(get: fn() => gmdate('i:s', $this->length));
     }
 
     public function CreatedAt(): Attribute

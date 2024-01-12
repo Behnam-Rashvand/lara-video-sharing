@@ -16,22 +16,6 @@
                             <input type="text" value="{{ $video->name }}" name="name" class="form-control"
                                 placeholder="@lang('videos.name')">
                         </div>
-                        <div class="col-md-6">
-                            <label> @lang('videos.length') </label>
-                            <input type="text" value="{{ $video->length }}" name="length" class="form-control"
-                                placeholder="@lang('videos.length')">
-                        </div>
-
-                        <div class="col-md-6">
-                            <lable> @lang('videos.category') </lable>
-                            <select name="category_id" id="category" class="form-control">
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}" @selected($video->category_id == $category->id ) >
-                                        {{ $category->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
                         {{-- <div class="col-md-6">
                             <label>برچسب ها</label>
                             <input type="text" name="tag" class="form-control" placeholder="برچسب ها">
@@ -51,6 +35,16 @@
                             {{-- <input id="featured_image" type="file" class="file"> --}}
                             <input type="text" value="{{ $video->thumbnail }}" name="thumbnail" class="form-control"
                                 placeholder=" @lang('videos.thumbnail')">
+                        </div>
+                        <div class="col-md-6">
+                            <lable> @lang('videos.category') </lable>
+                            <select name="category_id" id="category" class="form-control">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}" @selected($video->category_id == $category->id ) >
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-md-12">
                             <label>@lang('videos.description')</label>

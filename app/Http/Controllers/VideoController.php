@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateVideoRequest;
+use App\Services\FFmpegAdapter;
 use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
@@ -26,8 +27,10 @@ class VideoController extends Controller
     public function store(StoreVideoRequest $request)
     {
         $path= Storage::putFile('videos' , $request->file);
+        $ffmpegServices = new FFmpegAdapter($path);
         $request->merge([
-            'path' => $path
+            'path' => $path ,
+            'length' => $ffmpegServices->getDuration()
         ]);
         $request->user()->videos()->create($request->all());
         return to_route('home')->with('alert', __('messages.success'));
@@ -49,9 +52,11 @@ class VideoController extends Controller
     {
         if($request->hasFile('file')){
             $path= Storage::putFile('videos' , $request->file);
+            $ffmpegServices = new FFmpegAdapter($path);
             $request->merge([
-                'path' => $path
-            ]);
+                'path' => $path ,
+                'length' => $ffmpegServices->getDuration()
+            ]); 
         }
 
         $video->update($request->all());
