@@ -30,7 +30,8 @@ class VideoController extends Controller
         $ffmpegServices = new FFmpegAdapter($path);
         $request->merge([
             'path' => $path ,
-            'length' => $ffmpegServices->getDuration()
+            'length' => $ffmpegServices->getDuration() , 
+            'thumbnail' => $ffmpegServices->getFrame(),
         ]);
         $request->user()->videos()->create($request->all());
         return to_route('home')->with('alert', __('messages.success'));
@@ -55,7 +56,8 @@ class VideoController extends Controller
             $ffmpegServices = new FFmpegAdapter($path);
             $request->merge([
                 'path' => $path ,
-                'length' => $ffmpegServices->getDuration()
+                'length' => $ffmpegServices->getDuration(),
+                'thumbnail' => $ffmpegServices->getFrame(),
             ]); 
         }
 

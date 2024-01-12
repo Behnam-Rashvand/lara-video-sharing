@@ -73,6 +73,11 @@ class Video extends Model
         return (Attribute::make(get: fn()=> '/storage/'.$this->path));
     }
 
+    public function videoThumbnail(): Attribute
+    {
+        return (Attribute::make(get: fn()=> '/storage/'.$this->thumbnail));
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class)->orderByDesc('created_at');

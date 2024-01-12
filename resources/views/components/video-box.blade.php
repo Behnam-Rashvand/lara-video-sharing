@@ -4,7 +4,7 @@
         <div class="thumb">
             <div class="hover-efect"></div>
             <small class="time">{{ $video->lengthInHuman }}</small>
-            <a href="{{ route('videos.show' , $video) }}"><img src="{{ $video->thumbnail }}" alt=""></a>
+            <a href="{{ route('videos.show' , $video) }}"><img src="{{ $video->video_thumbnail }}" alt=""></a>
         </div>
         <div class="video-info">
             <div>
