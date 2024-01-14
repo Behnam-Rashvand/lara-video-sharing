@@ -27,8 +27,8 @@ class FFmpegAdapter{
 
     public function getFrame(){
         $frame= $this->video->frame(\FFMpeg\Coordinate\TimeCode::fromSeconds(1));
-        $fileName = 'videos/'.pathinfo($this->path , PATHINFO_FILENAME) . '.jpg';
-        $storage_path = storage_path('app/public/' . $fileName);
+        $fileName = pathinfo($this->path , PATHINFO_FILENAME) . '.jpg';
+        $storage_path = storage_path('app/public/videos/' . $fileName);
         $frame->save($storage_path) ;
 
         return $fileName;
