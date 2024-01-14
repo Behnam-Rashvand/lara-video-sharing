@@ -1,0 +1,9 @@
+{
+
+    "disks":[
+        {
+            "name" : "videos" ,
+            "mountTo" : "storage/app/public/videos"
+        }
+    ]
+}
