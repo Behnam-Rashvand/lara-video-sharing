@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Video;
 use App\Models\Category;
+use App\Services\VideoService;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreVideoRequest;
 use App\Http\Requests\UpdateVideoRequest;
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Storage;
 class VideoController extends Controller
 {
 
+    public function __construct( private VideoService $videoService )
+    {}
     public function index()
     {
         return view('index');
@@ -26,14 +29,7 @@ class VideoController extends Controller
 
     public function store(StoreVideoRequest $request)
     {
-        $path= Storage::putFile('' , $request->file);
-        $ffmpegServices = new FFmpegAdapter($path);
-        $request->merge([
-            'path' => $path ,
-            'length' => $ffmpegServices->getDuration() , 
-            'thumbnail' => $ffmpegServices->getFrame(),
-        ]);
-        $request->user()->videos()->create($request->all());
+        $this->videoService->create($request->user() , $request->all());
         return to_route('home')->with('alert', __('messages.success'));
     }
 
@@ -51,17 +47,7 @@ class VideoController extends Controller
 
     public function update( UpdateVideoRequest $request , Video $video)
     {
-        if($request->hasFile('file')){
-            $path= Storage::putFile('' , $request->file);
-            $ffmpegServices = new FFmpegAdapter($path);
-            $request->merge([
-                'path' => $path ,
-                'length' => $ffmpegServices->getDuration(),
-                'thumbnail' => $ffmpegServices->getFrame(),
-            ]); 
-        }
-
-        $video->update($request->all());
+        $this->videoService->update($video , $request->all());
         return to_route('videos.show' , $video)->with('alert' , __('messages.video_edit'));
     }
 
