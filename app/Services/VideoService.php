@@ -31,10 +31,10 @@ class VideoService{
 
     private function putFile(array $data){
 
+        Log::info("hi");
         $path= Storage::putFile('' , $data['file']);
-        Log::error('path file in uploads : {path}',['path' => $path]);
+        Log::info("----------path file in uploads ----------- : $path");
         $ffmpegServices = new FFmpegAdapter($path);
-        Log::error('ffmpeg class : {ffmpeg}', ['ffmpeg'=> $ffmpegServices]);
         $data['path'] = $path ;
         $data['length'] = $ffmpegServices->getDuration();
         $data['thumbnail'] = $ffmpegServices->getFrame();    

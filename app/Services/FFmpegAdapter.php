@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Storage;
-
+use FFMpeg;
 class FFmpegAdapter{
 
     private $ffprobe ;
@@ -14,8 +14,8 @@ class FFmpegAdapter{
 
     public function __construct(public string $path){
 
-        $this->ffmpeg = \FFMpeg\FFMpeg::create(config('ffmpeg')); 
-        $this->ffprobe = \FFMpeg\FFProbe::create();
+        $this->ffmpeg = FFMpeg\FFMpeg::create(config('ffmpeg')); 
+        $this->ffprobe = FFMpeg\FFProbe::create();
         $this->video_probe = $this->ffprobe->format(Storage::path($path));
         $this->video =$this->ffmpeg->open(Storage::path($path));
 
