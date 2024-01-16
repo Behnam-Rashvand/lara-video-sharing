@@ -4,9 +4,10 @@ namespace App\Models;
 
 use App\Models\Traits\Likeable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Video extends Model
 {
@@ -70,12 +71,12 @@ class Video extends Model
 
     public function videoUrl(): Attribute
     {
-        return (Attribute::make(get: fn()=> '/storage/'.$this->path));
+        return (Attribute::make(get: fn()=> Storage::url($this->path)));
     }
 
     public function videoThumbnail(): Attribute
     {
-        return (Attribute::make(get: fn()=> '/storage/'.$this->thumbnail));
+        return (Attribute::make(get: fn()=> Storage::url($this->thumbnail)));
     }
 
     public function comments()
