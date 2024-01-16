@@ -2,8 +2,6 @@
 
 return [
 
-    'ffmpeg.binaries'  => env('ffmpeg_binaries' , '/usr/bin/ffmpeg'), // the path to the FFMpeg binary
-    'ffprobe.binaries' => env('ffprobe_binaries' , '/usr/bin/ffprobe' ), // the path to the FFProbe binary
-    'timeout'          => env('ffmpeg_timeout' , 3600 ),
-    'ffmpeg.threads'   => env('ffmpeg_threads' , 12),
+    'ffmpeg.binaries' => env('FFMPEG_PATH', '/usr/bin/ffmpeg'),
+    'ffprobe.binaries' => env('FFPROBE_PATH', '/usr/bin/ffprobe'),
 ];
