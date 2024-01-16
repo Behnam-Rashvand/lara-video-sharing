@@ -3,7 +3,7 @@
     "disks":[
         {
             "name" : "videos" ,
-            "mountTo" : "storage"
+            "mountTo" : "storage/app"
         }
     ]
 }

@@ -71,12 +71,12 @@ class Video extends Model
 
     public function videoUrl(): Attribute
     {
-        return (Attribute::make(get: fn()=> Storage::url($this->path)));
+        return (Attribute::make(get: fn()=> Storage::url('app/'.$this->path)));
     }
 
     public function videoThumbnail(): Attribute
     {
-        return (Attribute::make(get: fn()=> Storage::url($this->thumbnail)));
+        return (Attribute::make(get: fn()=> Storage::url('app/'.$this->thumbnail)));
     }
 
     public function comments()
